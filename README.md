@@ -1,24 +1,45 @@
-# README
+# Test technique
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description du projet
 
-Things you may want to cover:
+Dans un nouveau projet rails, vous afficherez une page qui consommera l'API Star Wars suivante :
+https://swapi.dev/
 
-* Ruby version
+Cette page devra contenir une liste de tous les personnages dont la masse est supérieure à 75, groupés par film.
 
-* System dependencies
+Pour chaque personnage, afficher :
+- son nom
+- sa masse
+- le nom de sa planète d'origine
 
-* Configuration
+## Versions
 
-* Database creation
+- Ruby : 3.1.2
+- Rails : 7.1.3.2
+- Node : 18.12.0
 
-* Database initialization
+## Installation
 
-* How to run the test suite
+📦 Cloner le dépôt
+```sh
+git clone git@github.com:MaximeCastillo/hop3teamtest.git
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+📥 Se rendre dans le dossier
+```sh
+cd hop3teamtest
+```
 
-* Deployment instructions
+🏗️ Setup l'application
+```sh
+# Installer les dépendances
+bundle install
 
-* ...
+# Créer la base de données
+bundle exec rails db:create
+```
+
+🚀 Lancer l'application
+```sh
+bundle exec rails server
+```
