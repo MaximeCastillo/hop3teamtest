@@ -1,14 +1,22 @@
-<h1>Star Wars Characters</h1>
+<div class="container">
+  <h1 class="mt-5 mb-4">Star Wars Characters</h1>
 
-<% @characters_by_film.each do |film, characters| %>
-  <h2><%= film %></h2>
-  <ul>
-    <% characters.each do |character| %>
-      <li>
-        <strong>Name:</strong> <%= character[:name] %><br>
-        <strong>Mass:</strong> <%= character[:mass] %><br>
-        <strong>Homeworld:</strong> <%= character[:homeworld] %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+  <% @characters_by_film.each do |film, characters| %>
+    <div class="card mb-4">
+      <div class="card-header">
+        <h2 class="card-title"><%= film %></h2>
+      </div>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          <% characters.each do |character| %>
+            <li class="list-group-item">
+              <strong>Name:</strong> <%= character[:name] %><br>
+              <strong>Mass:</strong> <%= character[:mass] %><br>
+              <strong>Homeworld:</strong> <%= character[:homeworld] %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+</div>
