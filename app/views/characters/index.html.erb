@@ -1,7 +1,7 @@
 <div class="container">
   <h1 class="mt-5 mb-4">Star Wars Characters</h1>
 
-  <% @characters_by_film.each do |film, characters| %>
+  <% @filtered_characters_grouped_by_film.each do |film, characters| %>
     <div class="card mb-4">
       <div class="card-header">
         <h2 class="card-title"><%= film %></h2>

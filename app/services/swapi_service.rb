@@ -3,16 +3,14 @@ class SwapiService
 
   API_URL = 'https://swapi.dev/api/'
 
-  def self.get_characters
-    response = HTTParty.get("#{API_URL}people")
+  def self.get_films
+    response = HTTParty.get("#{API_URL}films")
 
-    characters = response['results']
+    films = response['results']
   end
 
-  def self.get_film_title(url)
+  def self.get_character(url)
     response = HTTParty.get(url)
-
-    film_title = response['title']
   end
 
   def self.get_homeworld_name(url)

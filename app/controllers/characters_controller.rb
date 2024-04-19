@@ -1,18 +1,18 @@
 class CharactersController < ApplicationController
   def index
-    @characters_by_film = {}
+    @filtered_characters_grouped_by_film = {}
 
-    characters = SwapiService.get_characters.select { |character| character['mass'].to_i > 75 }
+    films = SwapiService.get_films
 
-    characters.each do |character|
-      character['films'].each do |film_url|
-        film_title = SwapiService.get_film_title(film_url)
-        @characters_by_film[film_title] ||= []
-        @characters_by_film[film_title] << {
-          name: character['name'],
-          mass: character['mass'],
-          homeworld: SwapiService.get_homeworld_name(character['homeworld'])
-        }
+    films.each do |film|
+      film['characters'].each do |character_url|
+        character = SwapiService.get_character(character_url)
+        @filtered_characters_grouped_by_film[film['title']] ||= []
+        @filtered_characters_grouped_by_film[film['title']] << {
+            name: character['name'],
+            mass: character['mass'],
+            homeworld: SwapiService.get_homeworld_name(character['homeworld'])
+          } if character['mass'].to_i > 75
       end
     end
   end
